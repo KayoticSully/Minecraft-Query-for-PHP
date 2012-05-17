@@ -1,4 +1,3 @@
-
 <?php
 class minecraftQueryException extends Exception
 {
@@ -12,6 +11,7 @@ class minecraftQuery
     private $socket;
     private $players;
     private $info;
+    private $online;
     
     public function connect($ip, $port = 25565, $timeout = 3)
     {
@@ -28,6 +28,8 @@ class minecraftQuery
             if (!$this->getStatus($challenge)) {
                 fclose($this->socket);
                 throw new minecraftQueryException("Failed to receive status.");
+            } else {
+                $this->online = true;
             }
             
             fclose($this->socket);
@@ -44,6 +46,11 @@ class minecraftQuery
     public function getPlayers()
     {
         return isset($this->players) ? $this->players : false;
+    }
+    
+    public function isOnline()
+    {
+        return isset($this->online) ? $this->online : false;
     }
     
     private function getChallenge()
