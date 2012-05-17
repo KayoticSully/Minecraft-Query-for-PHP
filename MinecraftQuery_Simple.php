@@ -40,5 +40,3 @@ function queryMinecraft($ip, $port = 25565, $timeout = 2)
         'maxPlayers' => isset($data[2]) ? intval($data[2]) : 0
     );
 }
-
-?>
