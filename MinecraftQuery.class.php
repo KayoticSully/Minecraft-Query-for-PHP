@@ -43,7 +43,7 @@ class minecraftQuery
         return isset($this->info) ? $this->info : false;
     }
     
-    public function getPlayers()
+    public function getPlayerList()
     {
         return isset($this->players) ? $this->players : false;
     }
