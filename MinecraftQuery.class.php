@@ -8,9 +8,9 @@ class minecraftQuery
     /*
      * Class originally written by xPaw
      * Modifications and additions by ivkos
-	 *
-	 * GitHub: https://github.com/ivkos/Minecraft-Query-for-PHP
-	 */
+     *
+     * GitHub: https://github.com/ivkos/Minecraft-Query-for-PHP
+     */
     
     const STATISTIC = 0x00;
     const HANDSHAKE = 0x09;
