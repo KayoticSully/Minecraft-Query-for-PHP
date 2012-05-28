@@ -7,16 +7,16 @@
 	
 	require __DIR__ . '/MinecraftQuery.class.php';
 	
-	$Timer = MicroTime( true );
-	$Query = new MinecraftQuery( );
+	$timer = microtime( true );
+	$query = new minecraftQuery( );
 	
 	try
 	{
-		$Query->Connect( MQ_SERVER_ADDR, MQ_SERVER_PORT, MQ_TIMEOUT );
+		$query->connect( MQ_SERVER_ADDR, MQ_SERVER_PORT, MQ_TIMEOUT );
 	}
-	catch( MinecraftQueryException $e )
+	catch( minecraftQueryException $e )
 	{
-		$Error = $e->getMessage( );
+		$error = $e->getMessage( );
 	}
 ?>
 <!DOCTYPE html>
@@ -48,7 +48,7 @@
 <?php if( isset( $Error ) ): ?>
 		<div class="alert alert-info">
 			<h4 class="alert-heading">Exception:</h4>
-			<?php echo htmlspecialchars( $Error ); ?>
+			<?php echo htmlspecialchars( $error ); ?>
 		</div>
 <?php else: ?>
 		<div class="row">
@@ -60,20 +60,20 @@
 						</tr>
 					</thead>
 					<tbody>
-<?php if( ( $Info = $Query->GetInfo( ) ) !== false ): ?>
-<?php foreach( $Info as $InfoKey => $InfoValue ): ?>
+<?php if( ( $info = $query->getInfo( ) ) !== false ): ?>
+<?php foreach( $info as $infoKey => $infoValue ): ?>
 						<tr>
-							<td><?php echo htmlspecialchars( $InfoKey ); ?></td>
+							<td><?php echo htmlspecialchars( $infoKey ); ?></td>
 							<td><?php
-	if( Is_Array( $InfoValue ) )
+	if( is_Array( $infoValue ) )
 	{
 		echo "<pre>";
-		print_r( $InfoValue );
+		print_r( $infoValue );
 		echo "</pre>";
 	}
 	else
 	{
-		echo htmlspecialchars( $InfoValue );
+		echo htmlspecialchars( $infoValue );
 	}
 ?></td>
 						</tr>
@@ -90,10 +90,10 @@
 						</tr>
 					</thead>
 					<tbody>
-<?php if( ( $Players = $Query->GetPlayers( ) ) !== false ): ?>
-<?php foreach( $Players as $Player ): ?>
+<?php if( ( $players = $query->getPlayerList( ) ) !== false ): ?>
+<?php foreach( $players as $player ): ?>
 						<tr>
-							<td><?php echo htmlspecialchars( $Player ); ?></td>
+							<td><?php echo htmlspecialchars( $player ); ?></td>
 						</tr>
 <?php endforeach; ?>
 <?php else: ?>
@@ -107,9 +107,9 @@
 		</div>
 <?php endif; ?>
 		<footer>
-			<p class="pull-right">Generated in <span class="badge badge-success"><?php echo Number_Format( ( MicroTime( true ) - $Timer ), 4, '.', '' ); ?>s</span></p>
+			<p class="pull-right">Generated in <span class="badge badge-success"><?php echo number_format( ( microtime( true ) - $timer ), 4, '.', '' ); ?>s</span></p>
 			
-			<p>Written by <a href="http://xpaw.ru" target="_blank">xPaw</a></p>
+			<p>Originally written by <a href="http://xpaw.ru" target="_blank">xPaw</a>. Modifications and additions by ivkos.</p>
 			<p>Code licensed under the <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">CC BY-NC-SA 3.0</a></p>
 			<p>Sourcecode available on <a href="https://github.com/xPaw/PHP-Minecraft-Query" target="_blank">GitHub</a></p>
 		</footer>
