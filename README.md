@@ -14,14 +14,14 @@ Look for the following settings in **server.properties**:
 ## Example
 ```php
 <?php
-require __DIR__ . '/MinecraftQuery.class.php';
+require __DIR__ . '/minecraftQuery.class.php';
 
 $q = new minecraftQuery();
 
 try {
     $q->connect('localhost', 25565, 3); // Connects to the Minecraft server running
                                         // on 'localhost' on port 25565, with timeout 3 seconds
-    
+
     print_r($q->getInfo());             // Prints server information (e.g. version, number of players)
     print_r($query->getPlayerList());   // Prints a list of players currently playing
 }
