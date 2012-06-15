@@ -7,11 +7,10 @@ class minecraftRconException extends Exception
 class minecraftRcon
 {
     /*
-     * Class written by xPaw
+     * Originally written by xPaw
+     * Modifications and additions by ivkos
      *
-     * Website: http://xpaw.ru
-     * GitHub: https://github.com/xPaw/PHP-Minecraft-Query
-     *
+     * GitHub: https://github.com/ivkos/Minecraft-Query-for-PHP
      * Protocol: https://developer.valvesoftware.com/wiki/Source_RCON_Protocol
      */
 

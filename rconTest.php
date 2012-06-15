@@ -14,7 +14,7 @@ try {
 
     $rcon->connect(MQ_SERVER_ADDR, MQ_SERVER_PORT, MQ_SERVER_PASS, MQ_TIMEOUT);
 
-    $data = $rcon->command("say Hello from xPaw's minecraft rcon implementation.");
+    $data = $rcon->command("say Hello from Minecraft Query for PHP");
 
     if ($data === false) {
         throw new minecraftRconException("Failed to get command result.");

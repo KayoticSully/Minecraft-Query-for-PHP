@@ -7,7 +7,7 @@ class minecraftQueryException extends Exception
 class minecraftQuery
 {
     /*
-     * Class written by xPaw
+     * Originally written by xPaw
      * Modifications and additions by ivkos
      *
      * GitHub: https://github.com/ivkos/Minecraft-Query-for-PHP

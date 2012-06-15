@@ -32,6 +32,6 @@ catch (minecraftQueryException $e) {
 ```
 
 ## License
-This class was originally written by xpaw. Modifications and additions by ivkos.
+This class was originally written by xPaw. Modifications and additions by ivkos.
 > *This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.<br>
 > To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/*
