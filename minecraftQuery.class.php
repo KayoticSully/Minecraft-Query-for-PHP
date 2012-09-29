@@ -20,12 +20,16 @@ class minecraftQuery
     private $players;
     private $info;
     private $online;
+    private $latencyStart;
+    private $latencyEnd;
     
     public function connect($IP, $port = 25565, $timeout = 3)
     {
         if (!is_int($timeout) || $timeout < 0) {
             throw new InvalidArgumentException('Timeout must be an integer.');
         }
+        
+        $this->latencyStart = microtime(true);
         
         $this->socket = @fsockopen('udp://' . $IP, (int) $port, $errNo, $errStr, $timeout);
         
@@ -149,6 +153,10 @@ class minecraftQuery
         } else {
             $info['Software'] = 'Vanilla';
         }
+        
+        // (float) Returns approximate server latency in milliseconds
+        $this->latencyEnd = microtime(true);
+        $info['Latency'] = round(($this->latencyEnd - $this->latencyStart) * 1000, 2);
         
         $this->info = $info;
         
