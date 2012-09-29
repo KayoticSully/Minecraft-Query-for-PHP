@@ -1,83 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
+    <title>Minecraft Query for PHP by ivkos</title>
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>Minecraft Query in PHP by xPaw</title>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
-    <a id="forkme_banner" href="https://github.com/xPaw/PHP-Minecraft-Query">Fork Me on GitHub</a>
-    <div class="shell">
-
+    <div class="wrapper">
       <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Minecraft Query in PHP</h1>
-            <h2>PHP Class to query minecraft servers</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
+        <h1>Minecraft Query for PHP</h1>
+        <p>PHP Class to query minecraft servers</p>
+        <p class="view"><a href="https://github.com/ivkos/Minecraft-Query-for-PHP">View the Project on GitHub <small>ivkos/Minecraft-Query-for-PHP</small></a></p>
+        <ul>
+          <li><a href="https://github.com/ivkos/Minecraft-Query-for-PHP/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ivkos/Minecraft-Query-for-PHP/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ivkos/Minecraft-Query-for-PHP">View On <strong>GitHub</strong></a></li>
+        </ul>
       </header>
+      <section>
+        <h2>Description</h2>
 
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/xPaw/PHP-Minecraft-Query/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/xPaw/PHP-Minecraft-Query/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
-
-      <span class="banner-fix"></span>
-
-      <section id="main_content">
-        <h3>Description</h3>
-
-<p>This class was created to query Minecraft servers.<br>
-It works starting from <strong>Minecraft 1.0</strong></p>
+<p>You can query Minecraft servers using this class.<br>
+This works for servers running <strong>Minecraft 1.0</strong> and up.</p>
 
 <h3>Instructions</h3>
 
-<p>Before using this class, you need to make sure that your server is running GS4 status listener.</p>
+<p>Before using this class, you need to make sure that your server has querying enabled.</p>
 
-<p>Look for those settings in <strong>server.properties</strong>:</p>
+<p>Look for the following settings in <strong>server.properties</strong>:</p>
+
 <blockquote>
 <p><em>enable-query=true</em><br><em>query.port=25565</em></p>
 </blockquote>
+
 <h3>License</h3>
+
 <blockquote>
 <p><em>This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.<br>
 To view a copy of this license, visit <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a></em></p>
 </blockquote>
       </section>
-
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>&nbsp;</p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
-      </footer>
-
     </div>
-
+    <footer>
+      <p>Project maintained by <a href="https://github.com/ivkos">ivkos</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
 </html>
