@@ -96,7 +96,7 @@ class minecraftQuery
         }
         
         $last = "";
-        $info = Array();
+        $info = array();
         
         $data    = substr($data, 11); // splitnum + 2 int
         $data    = explode("\x00\x00\x01player_\x00\x00", $data);
@@ -144,7 +144,7 @@ class minecraftQuery
             $info['Software']   = $data[0];
             
             if (count($data) == 2) {
-                $info['Plugins'] = Explode("; ", $data[1]);
+                $info['Plugins'] = explode("; ", $data[1]);
             }
         } else {
             $info['Software'] = 'Vanilla';
