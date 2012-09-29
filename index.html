@@ -18,7 +18,7 @@
     <div class="wrapper">
       <header>
         <h1>Minecraft Query for PHP</h1>
-        <p>PHP Class to query minecraft servers</p>
+        <p>PHP Class for Querying Minecraft Servers</p>
         <p class="view"><a href="https://github.com/ivkos/Minecraft-Query-for-PHP">View the Project on GitHub <small>ivkos/Minecraft-Query-for-PHP</small></a></p>
         <ul>
           <li><a href="https://github.com/ivkos/Minecraft-Query-for-PHP/zipball/master">Download <strong>ZIP File</strong></a></li>
@@ -32,17 +32,36 @@
 <p>You can query Minecraft servers using this class.<br>
 This works for servers running <strong>Minecraft 1.0</strong> and up.</p>
 
-<h3>Instructions</h3>
+<h2>Instructions</h2>
 
-<p>Before using this class, you need to make sure that your server has querying enabled.</p>
-
-<p>Look for the following settings in <strong>server.properties</strong>:</p>
+<p>Before using this class, you need to make sure that your server has querying enabled.
+Look for the following settings in <strong>server.properties</strong>:</p>
 
 <blockquote>
 <p><em>enable-query=true</em><br><em>query.port=25565</em></p>
 </blockquote>
 
-<h3>License</h3>
+<h2>Example</h2>
+
+<div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">'/minecraftQuery.class.php'</span><span class="p">;</span>
+
+<span class="nv">$q</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">minecraftQuery</span><span class="p">();</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$q</span><span class="o">-&gt;</span><span class="na">connect</span><span class="p">(</span><span class="s1">'localhost'</span><span class="p">,</span> <span class="mi">25565</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// Connects to the Minecraft server running</span>
+                                        <span class="c1">// on 'localhost' on port 25565, with timeout 3 seconds</span>
+
+    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$q</span><span class="o">-&gt;</span><span class="na">getInfo</span><span class="p">());</span>             <span class="c1">// Prints server information (e.g. version, number of players)</span>
+    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getPlayerList</span><span class="p">());</span>   <span class="c1">// Prints a list of players currently playing</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="nx">minecraftQueryException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>              <span class="c1">// Prints an error if there is such</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+
+<h2>License</h2>
 
 <blockquote>
 <p><em>This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.<br>
