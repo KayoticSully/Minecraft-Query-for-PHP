@@ -18,6 +18,8 @@ function queryMinecraft($IP, $port = 25565, $timeout = 2)
         'usec' => 0
     ));
     
+    $latencyStart = microtime(true);
+    
     if ($socket === false || @socket_connect($socket, $IP, (int) $port) === false) {
         return false;
     }
@@ -25,6 +27,7 @@ function queryMinecraft($IP, $port = 25565, $timeout = 2)
     socket_send($socket, "\xFE\x01", 2, 0);
     $len = socket_recv($socket, $data, 256, 0);
     socket_close($socket);
+    $latencyEnd = microtime(true);
     
     if ($len < 4 || $data[0] !== "\xFF") {
         return false;
@@ -41,6 +44,7 @@ function queryMinecraft($IP, $port = 25565, $timeout = 2)
             'HostName'   => $data[3],
             'Players'    => intval($data[4]),
             'MaxPlayers' => intval($data[5]),
+            'Latency'    => round(($latencyEnd - $latencyStart) * 1000, 2),
             'Protocol'   => intval($data[1]),
             'Version'    => $data[2]
         );
@@ -52,6 +56,7 @@ function queryMinecraft($IP, $port = 25565, $timeout = 2)
         'HostName'   => substr($data[0], 0, -1),
         'Players'    => isset($data[1]) ? intval($data[1]) : 0,
         'MaxPlayers' => isset($data[2]) ? intval($data[2]) : 0,
+        'Latency'    => round(($latencyEnd - $latencyStart) * 1000, 2),        
         'Protocol'   => 0,
         'Version'    => '1.3'
     );
