@@ -35,24 +35,24 @@ function queryMinecraft($IP, $port = 25565, $timeout = 2)
     
     // Are we dealing with Minecraft 1.4+ server?
     if($data[1] === "\xA7" && $data[2] === "\x31") {
-		$data = explode("\x00", $data);
-	
-		return array(
-			'HostName'   => $data[3],
-			'Players'    => intval($data[4]),
-			'MaxPlayers' => intval($data[5]),
-			'Protocol'   => intval($data[1]),
-			'Version'    => $data[2]
-		);
-	}
+        $data = explode("\x00", $data);
+        
+        return array(
+            'HostName'   => $data[3],
+            'Players'    => intval($data[4]),
+            'MaxPlayers' => intval($data[5]),
+            'Protocol'   => intval($data[1]),
+            'Version'    => $data[2]
+        );
+    }
     
     $data = explode("\xA7", $data);
     
     return array(
-		'HostName'   => substr($data[0], 0, -1),
-		'Players'    => isset($data[1]) ? intval($data[1]) : 0,
-		'MaxPlayers' => isset($data[2]) ? intval($data[2]) : 0,
-		'Protocol'   => 0,
-		'Version'    => '1.3'
-	);
+        'HostName'   => substr($data[0], 0, -1),
+        'Players'    => isset($data[1]) ? intval($data[1]) : 0,
+        'MaxPlayers' => isset($data[2]) ? intval($data[2]) : 0,
+        'Protocol'   => 0,
+        'Version'    => '1.3'
+    );
 }
