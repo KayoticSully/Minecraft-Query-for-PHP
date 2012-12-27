@@ -43,7 +43,7 @@ class minecraftRcon
                 throw new minecraftRconException("Authorization failed.");
             }
         } else {
-            throw new MinecraftQueryException("Can't open socket.");
+            throw new MinecraftRconException("Can't open socket.");
         }
     }
 
